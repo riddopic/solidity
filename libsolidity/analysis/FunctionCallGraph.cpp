@@ -204,6 +204,15 @@ bool FunctionCallGraphBuilder::visit(MemberAccess const& _memberAccess)
 	return true;
 }
 
+// TODO add UNARY user defined operators
+
+bool FunctionCallGraphBuilder::visit(BinaryOperation const& _binaryOperation)
+{
+	if (FunctionDefinition const* function = _binaryOperation.annotation().userDefinedFunction)
+		functionReferenced(*function, true /* called directly */);
+	return true;
+}
+
 bool FunctionCallGraphBuilder::visit(ModifierInvocation const& _modifierInvocation)
 {
 	if (auto const* modifier = dynamic_cast<ModifierDefinition const*>(_modifierInvocation.name().annotation().referencedDeclaration))
