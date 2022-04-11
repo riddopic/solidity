@@ -3,6 +3,12 @@
 Important Bugfixes:
  * ABI Encoder: When ABI-encoding values from calldata that contain nested arrays, correctly validate the nested array length against ``calldatasize()`` in all cases.
  * Override Checker: Allow changing data location for parameters only when overriding external functions.
+ * ABI Encoding: When ABI-encoding values from calldata that contain nested arrays, correctly validate the nested array length against ``calldatasize()`` in all cases.
+
+
+Language Features:
+* General: Add `E.selector` for a non-anonymous event `E` to access the 32-byte selector topic.
+* General: Errors and Events allow qualified access from other contracts.
 
 
 Compiler Features:
